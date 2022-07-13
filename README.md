@@ -1,4 +1,4 @@
-# activemq
+# Activemq
 Dockerfiles for [ActiveMQ](https://activemq.apache.org/components/classic/download/) above v5.16.4
 
 ## 5.16.4
