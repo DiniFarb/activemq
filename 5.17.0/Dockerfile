@@ -17,7 +17,13 @@ RUN if [ "$SHA512_VAL" != "$(sha512sum $ACTIVEMQ-bin.tar.gz | awk '{print($1)}')
         exit 1; \
     fi;
 
-RUN tar xzf $ACTIVEMQ-bin.tar.gz -C  /opt
+RUN tar xzf $ACTIVEMQ-bin.tar.gz -C  /opt && \
+    ln -s /opt/$ACTIVEMQ $ACTIVEMQ_HOME && \
+    useradd -r -M -d $ACTIVEMQ_HOME activemq && \
+    chown -R activemq:activemq /opt/$ACTIVEMQ && \
+    chown -h activemq:activemq $ACTIVEMQ_HOME 
+
+USER activemq
 
 COPY jetty.xml $ACTIVEMQ_HOME/conf/jetty.xml
 
