@@ -12,19 +12,31 @@ env:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
 
-    - name: Login to Docker Hub
-      run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-          
-    - name: Build and push Docker images
-      run: |
-        for dockerfile in **/Dockerfile; do
-          folder=$(dirname $dockerfile)
-          version=${folder////-}
-          docker build -t dinifarb/activemq:$version $folder
-          docker push dinifarb/activemq:$version
-        done
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Determine changed Dockerfiles
+        id: find-dockerfiles
+        run: |
+          changed_files=$(git diff --name-only HEAD~1)
+          dockerfiles=$(find . -name "Dockerfile" -printf '%P\n')
+
+          changed_dockerfiles=""
+          for file in $dockerfiles; do
+            if [[ $changed_files == *"$file"* ]]; then
+              changed_dockerfiles+=" $file"
+            fi
+          done
+
+          echo "::set-output name=changed_dockerfiles::$changed_dockerfiles"
+
+      - name: Build and push Docker images
+        run: |
+          version="${{ github.sha }}"
+          for dockerfile in ${{ steps.find-dockerfiles.outputs.changed_dockerfiles }}; do
+            folder=$(dirname $dockerfile)
+            docker build -t dinifarb/activemq:"$version" "$folder"
+            docker push dinifarb/activemq:"$version"
+          done
