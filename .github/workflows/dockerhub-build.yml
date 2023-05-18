@@ -20,7 +20,7 @@ jobs:
       - name: Determine changed Dockerfiles
         id: find-dockerfiles
         run: |
-          changed_files=$(git diff --name-only HEAD~1)
+          changed_files=$(git diff --name-only HEAD~1 || git ls-files --exclude='*')
           dockerfiles=$(find . -name "Dockerfile" -printf '%P\n')
 
           changed_dockerfiles=""
