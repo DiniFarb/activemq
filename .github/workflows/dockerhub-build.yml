@@ -6,9 +6,8 @@ on:
       - main
 
 env:
-  username: ${{ secrets.DOCKERHUB_USERNAME }}
-  password: ${{ secrets.DOCKERHUB_PASSWORD }}
-  repository: dinifarb/activemq
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
 jobs:
   build-and-push:
@@ -18,9 +17,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Login to Docker registry
-      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-    
+    - name: Login to Docker Hub
+      run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+          
     - name: Build and push Docker images
       run: |
         for dockerfile in **/Dockerfile; do
