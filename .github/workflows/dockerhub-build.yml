@@ -1,0 +1,31 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  username: ${{ secrets.DOCKERHUB_USERNAME }}
+  password: ${{ secrets.DOCKERHUB_PASSWORD }}
+  repository: dinifarb/activemq
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Login to Docker registry
+      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD $DOCKER_REGISTRY
+    
+    - name: Build and push Docker images
+      run: |
+        for dockerfile in **/Dockerfile; do
+          folder=$(dirname $dockerfile)
+          version=${folder////-}
+          docker build -t dinifarb/activemq:$version $folder
+          docker push dinifarb/activemq:$version
+        done
