@@ -37,9 +37,8 @@ jobs:
 
       - name: Build and push Docker images
         run: |
-          version="${{ github.sha }}"
           for dockerfile in ${{ steps.find-dockerfiles.outputs.changed_dockerfiles }}; do
             folder=$(dirname $dockerfile)
-            docker build -t dinifarb/activemq:"$version" "$folder"
-            docker push dinifarb/activemq:"$version"
+            docker build -t dinifarb/activemq:"$folder" "$folder"
+            docker push dinifarb/activemq:"$folder"
           done
