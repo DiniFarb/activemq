@@ -18,8 +18,10 @@ docker run -it -p 1883:1883 -p 8161:8161 dinifarb/activemq:5.17.2
 |```dinifarb/activemq:5.17.2```|
 |```dinifarb/activemq:5.17.3```|
 |```dinifarb/activemq:5.17.4```|
+|```dinifarb/activemq:5.17.5```|
 |```dinifarb/activemq:5.18.0```|
 |```dinifarb/activemq:5.18.1```|
+|```dinifarb/activemq:5.18.2```|
 
 ## Ports
 
