@@ -1,15 +1,20 @@
 # Activemq
-[Dockerfiles](https://github.com/DiniFarb/activemq) for [ActiveMQ](https://activemq.apache.org/components/classic/download/) classic above v5.16.4
+[Dockerfiles](https://github.com/DiniFarb/activemq) for [ActiveMQ](https://activemq.apache.org/components/classic/download/) classic above v5.16.0
 
 ## Run 
 
 ```bash
-docker run -it -p 1883:1883 -p 8161:8161 dinifarb/activemq:5.17.2
+docker run -it -p 1883:1883 -p 8161:8161 dinifarb/activemq:6.0.1
 ```
 
 ## Available tags
 ||
 |------|
+
+|```dinifarb/activemq:5.16.0```|
+|```dinifarb/activemq:5.16.1```|
+|```dinifarb/activemq:5.16.2```|
+|```dinifarb/activemq:5.16.3```|
 |```dinifarb/activemq:5.16.4```|
 |```dinifarb/activemq:5.16.5```|
 |```dinifarb/activemq:5.16.6```|
@@ -25,6 +30,8 @@ docker run -it -p 1883:1883 -p 8161:8161 dinifarb/activemq:5.17.2
 |```dinifarb/activemq:5.18.1```|
 |```dinifarb/activemq:5.18.2```|
 |```dinifarb/activemq:5.18.3```|
+|```dinifarb/activemq:6.0.0```|
+|```dinifarb/activemq:6.0.1```|
 
 ## Ports
 

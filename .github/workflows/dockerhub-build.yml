@@ -20,25 +20,5 @@ jobs:
       - name: Login to Docker Hub
         run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
-      - name: Determine changed Dockerfiles
-        id: find-dockerfiles
-        run: |
-          changed_files=$(git diff --name-only HEAD~1 || git ls-files --exclude='*')
-          dockerfiles=$(find . -name "Dockerfile" -printf '%P\n')
-
-          changed_dockerfiles=""
-          for file in $dockerfiles; do
-            if [[ $changed_files == *"$file"* ]]; then
-              changed_dockerfiles+=" $file"
-            fi
-          done
-
-          echo "::set-output name=changed_dockerfiles::$changed_dockerfiles"
-
       - name: Build and push Docker images
-        run: |
-          for dockerfile in ${{ steps.find-dockerfiles.outputs.changed_dockerfiles }}; do
-            folder=$(dirname $dockerfile)
-            docker build -t dinifarb/activemq:"$folder" "$folder"
-            docker push dinifarb/activemq:"$folder"
-          done
+        run: publish.sh
