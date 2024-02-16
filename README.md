@@ -10,7 +10,6 @@ docker run -it -p 1883:1883 -p 8161:8161 dinifarb/activemq:6.0.1
 ## Available tags
 ||
 |------|
-
 |```dinifarb/activemq:5.16.0```|
 |```dinifarb/activemq:5.16.1```|
 |```dinifarb/activemq:5.16.2```|
