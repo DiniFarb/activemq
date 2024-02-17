@@ -16,18 +16,17 @@ RUN yum -y install tar gzip shadow-utils && yum -y clean all  && rm -rf /var/cac
 
 RUN curl "https://archive.apache.org/dist/activemq/$ACTIVEMQ_VERSION/$ACTIVEMQ-bin.tar.gz" -o $ACTIVEMQ-bin.tar.gz
 
-RUN tar -xzf $ACTIVEMQ-bin.tar.gz -C /opt
-RUN ln -s /opt/$ACTIVEMQ $ACTIVEMQ_HOME && \
+RUN tar -xzf $ACTIVEMQ-bin.tar.gz -C /opt && \
+    ln -s /opt/$ACTIVEMQ $ACTIVEMQ_HOME && \
     useradd -r -M -d $ACTIVEMQ_HOME activemq && \
     chown -R activemq:activemq /opt/$ACTIVEMQ && \
     chown -h activemq:activemq $ACTIVEMQ_HOME 
 
+RUN rm -rf $ACTIVEMQ-bin.tar.gz
 
-RUN rm -rf /tmp/$ACTIVEMQ-bin.tar.gz
+RUN sed -i 's/value="127.0.0.1"/value="0.0.0.0"/' $ACTIVEMQ_HOME/conf/jetty.xml
 
 USER activemq
-
-COPY jetty.xml $ACTIVEMQ_HOME/conf/jetty.xml
 
 WORKDIR $ACTIVEMQ_HOME
 
