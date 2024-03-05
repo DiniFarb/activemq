@@ -1,5 +1,5 @@
 # Activemq
-[Dockerfiles](https://github.com/DiniFarb/activemq) for [ActiveMQ](https://activemq.apache.org/components/classic/download/) classic above v5.16.0
+[Docker](https://github.com/DiniFarb/activemq) images for [ActiveMQ](https://activemq.apache.org/components/classic/download/) classic above v5.16.0
 
 ## Run 
 
