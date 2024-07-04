@@ -8,33 +8,17 @@ docker run -it -p 1883:1883 -p 8161:8161 dinifarb/activemq:6.0.1
 ```
 
 ## Available tags
-||
-|------|
-|```dinifarb/activemq:5.16.0```|
-|```dinifarb/activemq:5.16.1```|
-|```dinifarb/activemq:5.16.2```|
-|```dinifarb/activemq:5.16.3```|
-|```dinifarb/activemq:5.16.4```|
-|```dinifarb/activemq:5.16.5```|
-|```dinifarb/activemq:5.16.6```|
-|```dinifarb/activemq:5.16.7```|
-|```dinifarb/activemq:5.17.0```|
-|```dinifarb/activemq:5.17.1```|
-|```dinifarb/activemq:5.17.2```|
-|```dinifarb/activemq:5.17.3```|
-|```dinifarb/activemq:5.17.4```|
-|```dinifarb/activemq:5.17.5```|
-|```dinifarb/activemq:5.17.6```|
-|```dinifarb/activemq:5.18.0```|
-|```dinifarb/activemq:5.18.1```|
-|```dinifarb/activemq:5.18.2```|
-|```dinifarb/activemq:5.18.3```|
-|```dinifarb/activemq:5.18.4```|
-|```dinifarb/activemq:6.0.0``` |
-|```dinifarb/activemq:6.0.1``` |
-|```dinifarb/activemq:6.1.0``` |
-|```dinifarb/activemq:6.1.1``` |
-|```dinifarb/activemq:6.1.2``` |
+
+|**5.16.x**|**5.17.x**|**5.18.x**|**6.x.x**|
+|-----|-----|-----|-----|
+|```dinifarb/activemq:5.16.0```|```dinifarb/activemq:5.17.0```|```dinifarb/activemq:5.18.0```|```dinifarb/activemq:6.0.0``` |
+|```dinifarb/activemq:5.16.1```|```dinifarb/activemq:5.17.1```|```dinifarb/activemq:5.18.1```|```dinifarb/activemq:6.0.1``` |
+|```dinifarb/activemq:5.16.4```|```dinifarb/activemq:5.17.2```|```dinifarb/activemq:5.18.2```|```dinifarb/activemq:6.1.0``` |
+|```dinifarb/activemq:5.16.2```|```dinifarb/activemq:5.17.3```|```dinifarb/activemq:5.18.3```|```dinifarb/activemq:6.1.1``` |
+|```dinifarb/activemq:5.16.3```|```dinifarb/activemq:5.17.4```|```dinifarb/activemq:5.18.4```|```dinifarb/activemq:6.1.2``` |
+|```dinifarb/activemq:5.16.5```|```dinifarb/activemq:5.17.5```|||
+|```dinifarb/activemq:5.16.6```|```dinifarb/activemq:5.17.6```|||
+|```dinifarb/activemq:5.16.7```||||
 
 ## Ports
 
