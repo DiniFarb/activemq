@@ -4,7 +4,7 @@
 ## Run 
 
 ```bash
-docker run -it -p 1883:1883 -p 8161:8161 dinifarb/activemq:6.0.1
+docker run -it -p 1883:1883 -p 8161:8161 dinifarb/activemq:6.1.5
 ```
 
 ## Available tags
